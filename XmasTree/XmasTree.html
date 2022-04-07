@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<title>♥ X'mas Tree ♥</title>
+<style>
+
+body
+{
+	 background-color: #ffffff;
+   padding: 0px;
+   margin: 0px;
+ }
+
+#gradient
+{
+  width: 100%;
+  height: 800px;
+  padding: 0px;
+  margin: 0px;
+}
+#info {
+  position: absolute;
+  top: 0%;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  color: #000000
+}
+
+
+</style>
+</head>
+
+<body>
+  <div id="info" style="z-index:2">X'mas Tree
+  <p id='velprint'>
+  </p>
+  </div>
+
+  <div>
+    <img src="https://i.imgur.com/omX5Drl.png" style="position:absolute;top:0vw;left:10vw;width:80vw;height:100vh;z-index:1">
+  </div>
+
+
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+  <button id="b" style="position:absolute; left:10vw; top:2vh;z-index:2">
+  Light On!
+  </button>
+
+  <button id="normal" style="position:absolute; left:10vw; top:8vh;z-index:2">
+  Normal Mode
+  </button>
+
+  <button id="random" style="position:absolute; left:10vw; top:14vh;z-index:2">
+  Random Mode
+  </button>
+
+
+  <div id="gradient" />
+
+<audio id="soundtrack" autoplay loop style="display:none">
+<source src="BGM/sunset.mp4" type='audio/mp4'>
+
+</audio>
+
+
+<script>
+
+
+var flag = false;
+var lights = [];
+var start = new Date().getTime();
+var elapsed = 0;
+var temp;
+var next;
+var colorChange;
+var speed;
+if(!flag)soundtrack.pause();
+$('#b').click(function() {
+  flag = !flag;
+  if (!flag) {
+    $('#b').text('Light On!')
+    soundtrack.pause()
+  } else {
+    $('#b').text('Light Off!')
+    soundtrack.play()
+  }
+});
+
+$('#normal').click(function() {
+  speed =0.002;
+  next = 500;
+  temp = temp + 500;
+});
+
+$('#random').click(function() {
+	speed=0.02;
+  var rand = 1000 + Math.random() * 1000;
+  next = rand;
+  temp = temp + rand;
+});
+class Light {
+
+  constructor() {
+    // create/append div dynamically
+    // https://stackoverflow.com/questions/14004117/create-div-and-append-div-dynamically
+    this.element = document.createElement('div');
+    // set element style attribute
+    //https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/style
+    this.element.style.cssText = "position:absolute;width:20px;height:20px;border-radius:25px;z-index:1";
+    this.element.style.top = '15vh';
+    this.element.style.left = '30vw';
+    // CSS color property: https://www.w3schools.com/cssref/pr_text_color.asp
+    // hsl: https://www.w3schools.com/colors/colors_hsl.asp
+    this.element.style.background = "hsl(65, 100%, 50%)";
+    document.getElementsByTagName('body')[0].appendChild(this.element);
+  }
+
+  ramdPos() {
+  	let hi = 5+Math.random() * 60;
+    this.element.style.top = hi + 'vh';
+    let wi;
+
+    if(hi <= 10)
+    	this.element.style.left = 45 + Math.random() * 20 + 'vw';
+    else if(hi <= 25 && hi > 5)
+      this.element.style.left = 35 + Math.random() * 35 + 'vw';
+    else if(hi <= 40 && hi > 25)
+    	this.element.style.left = 25 + Math.random() * 55 + 'vw';
+   	else
+    	this.element.style.left = 20 + Math.random() * 60 + 'vw';
+  }
+
+}
+
+////////////////////////////////
+init();
+animate();
+
+function init() {
+  var light;
+  for (var count = 0; count < 50; count++) {
+    light = new Light()
+    light.element.style.background = "hsl(65, 100%, 50%)";
+    lights.push(light);
+  }
+
+  next = 500;
+  temp = next;
+
+  lights.forEach(function(l) {
+    l.ramdPos();
+  });
+
+  /////////////////
+  var colors = new Array(
+  [62,35,255],
+  [60,255,60],
+  [255,35,98],
+  [45,175,230],
+  [255,0,255],
+  [255,128,0]);
+
+var step = 0;
+//color table indices for:
+// current color left
+// next color left
+// current color right
+// next color right
+var colorIndices = [0,1,2,3];
+
+//transition speed
+var gradientSpeed = 0.02;
+
+function updateGradient()
+{
+
+  if ( $===undefined ) return;
+
+var c0_0 = colors[colorIndices[0]];
+var c0_1 = colors[colorIndices[1]];
+var c1_0 = colors[colorIndices[2]];
+var c1_1 = colors[colorIndices[3]];
+
+var istep = 1 - step;
+var r1 = Math.round(istep * c0_0[0] + step * c0_1[0]);
+var g1 = Math.round(istep * c0_0[1] + step * c0_1[1]);
+var b1 = Math.round(istep * c0_0[2] + step * c0_1[2]);
+var color1 = "rgb("+r1+","+g1+","+b1+")";
+
+var r2 = Math.round(istep * c1_0[0] + step * c1_1[0]);
+var g2 = Math.round(istep * c1_0[1] + step * c1_1[1]);
+var b2 = Math.round(istep * c1_0[2] + step * c1_1[2]);
+var color2 = "rgb("+r2+","+g2+","+b2+")";
+
+ $('#gradient').css({
+   background: "-webkit-gradient(linear, left top, right top, from("+color1+"), to("+color2+"))"}).css({
+    background: "-moz-linear-gradient(left, "+color1+" 0%, "+color2+" 100%)"});
+
+  step += gradientSpeed;
+  if ( step >= 1 )
+  {
+    step %= 1;
+    colorIndices[0] = colorIndices[1];
+    colorIndices[2] = colorIndices[3];
+
+    //pick two new target color indices
+    //do not pick the same as the current one
+    colorIndices[1] = ( colorIndices[1] + Math.floor( 1 + Math.random() * (colors.length - 1))) % colors.length;
+    colorIndices[3] = ( colorIndices[3] + Math.floor( 1 + Math.random() * (colors.length - 1))) % colors.length;
+
+  }
+}
+
+setInterval(updateGradient,10);
+}
+
+
+function animate() {
+  requestAnimationFrame(animate);
+  elapsed = new Date().getTime() - start;
+
+  if (!flag) {
+    if (elapsed > temp)
+      temp += next;
+    lights.forEach(function(l) {
+      l.element.style.background = "hsl(65, 20%, 20%)";
+    });
+  } else {
+    if (elapsed > temp) {
+      temp += next;
+      lights.forEach(function(l) {
+        l.element.style.background = "hsl(" + Math.random() * 360 + ", 90%, 70%)";
+      });
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+
+</html>

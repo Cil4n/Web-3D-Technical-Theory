@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <title>♥ The Art of Kanahei ♥</title>
+<style>
+#container {
+  width: 50vw;
+  height: 40vw;
+  float: left;
+  background-color: yellow;
+  margin: 10px;
+}
+
+
+    body {
+      overflow: hidden;
+    }
+    p{
+      float: left;
+      margin-left:30px;
+    }
+
+
+</style>
+</head>
+
+<body>
+  <h1 style="font-size:2em; text-align:center; margin:15px">
+The Art of Kanahei
+</br><a href="design.jpeg">design diagram</a><br>
+
+</h1>
+
+<hr>
+<button id="tView" style="width:20%">LightToggle</button>
+<input type=range min=0 max=1 step=0.1 id='intensity'> Light inten <br>
+<button id="lView" style="width:20%">LampToggle</button>
+<input type=range min=0 max=1 step=0.1 id='lampIntensity'> Lamp inten <br>
+
+<div id="container">
+</div>
+<div style="background:white; margin-top: 2px; margin-right: 40px; width:22vw; height:22vw; float:left">
+      <!--  Red circle : choose picture<br>
+        Blue circle : choose camera<br-->
+        Please select :<select id="toggle" onchange="pic()">
+       <option value=0>--Picture--</option>
+       <option value=1>Usagi</option>
+       <option value=2>Piske</option>
+       <option value=3>Usagi & Piske goal</option>
+       <option value=4>Usagi & Piske dance</option>
+       <option value=5>Snow</option>
+       <option value=6>Halloween</option>
+       <option value=7>Summer</option>
+       <option value=8>Moon</option>
+     </select>
+<div style="background:white; margin-top: 30px; margin-right: -120px; width:40vw; height:30vw; float:right">
+<p id="intro">Kanahei 是一個插畫家與漫畫家，來自日本愛媛縣。</p>
+
+<!--div style="background:pink; margin-top: 5px; margin-right: 30px; width:42vw; height:22vw; float:right">
+
+<img src="design.png" width=100% height=100% usemap="#rmap">
+<map name="rmap">
+      <area id="Usagi" shape="circle" coords="100, 100, 10">
+      <area id="Piske" shape="circle" coords="315, 105, 10">
+      <area id="Usagi & Piske goal" shape="circle" coords="205, 170, 10">
+      <area id="Usagi & Piske dance" shape="circle" coords="205, 50, 10">
+      <area id="Snow" shape="circle" coords="205 70, 10">
+      <area id="Halloween" shape="circle" coords="205, 145, 10">
+      <area id="Summer" shape="circle" coords="120, 100, 10">
+      <area id="Moon" shape="circle" coords="295, 105, 10">
+      <area id="camera1" shape="circle" coords="20, 20, 10">
+      <area id="camera2" shape="circle" coords="20, 200, 10">
+      <area id="camera3" shape="circle" coords="400, 20, 10">
+      <area id="camera4" shape="circle" coords="400, 200, 10">
+</map-->
+
+<!--button id="toggle" style="width:20%">ViewToggle</button-->
+<!--div id="info"-->
+
+
+
+
+</p>
+<p>
+  <div style="background:white; margin-top: 140px; margin-right: 10px; width:45vw; height:18vw; float:right">
+      <div style="background:red; width:28vw; height:18vw; float:left">
+        <div style="background:white; width:28vw; height:9vw">
+          <div id="cam1" style="background:red; width:13vw; height:8vw; float:left"></div>
+          <div id="cam2" style="background:orange; width:13vw; height:8vw; float:right"></div>
+        </div>
+        <div style="background:white; width:28vw; height:9vw">
+          <div id="cam3" style="background:yellow; width:13vw; height:8vw; float:left"></div>
+          <div id="cam4" style="background:green; width:13vw; height:8vw; float:right"></div>
+        </div>
+      </div>
+      <div style="background:white; width:16vw; height:18vw; float:right">
+        <div id="monitor" style="background:blue; width:16vw; height:15vw; margin-left:0vw"></div>
+        <div style="background:white; width:16vw; height:4vw; margin-top: 1vw">
+          <button id="left" style="border-top: 15px solid white;border-bottom: 15px solid white;border-right: 20px solid pink;display:inline-block; float:left; margin-left:10%"></button>
+          <input type="text" name="frame" style="width:4.7vw; height:2vw; text-align:center" value="zoom">
+          <button id="right" style="border-top: 15px solid white;border-bottom: 15px solid white;border-left: 20px solid pink;display:inline-block;float:right; margin-right:10%"></button>
+          <!--div style="background:pink; margin-top: 5px; margin-right: 00px; width:42vw; height:22vw; float:right">
+
+          <img src="design.png" width=100% height=100% usemap="#rmap">
+          <map name="rmap">
+                <area id="Usagi" shape="circle" coords="100, 100, 10">
+                <area id="Piske" shape="circle" coords="315, 105, 10">
+                <area id="Usagi & Piske goal" shape="circle" coords="205, 170, 10">
+                <area id="Usagi & Piske dance" shape="circle" coords="205, 50, 10">
+                <area id="Snow" shape="circle" coords="205 70, 10">
+                <area id="Halloween" shape="circle" coords="205, 145, 10">
+                <area id="Summer" shape="circle" coords="120, 100, 10">
+                <area id="Moon" shape="circle" coords="295, 105, 10">
+                <area id="camera1" shape="circle" coords="20, 20, 10">
+                <area id="camera2" shape="circle" coords="20, 200, 10">
+                <area id="camera3" shape="circle" coords="400, 20, 10">
+                <area id="camera4" shape="circle" coords="400, 200, 10">
+          </map-->
+</p>
+<hr>
+<p>
+
+</p>
+<script src="https://cdn.jsdelivr.net/npm/three@0.113.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.113.0/examples/js/controls/OrbitControls.js"></script>
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<script>
+var useCamera1 = false;
+var lightsOff = false;
+var lampsOff = false;
+var lightArray = [];
+var lamp = [];
+
+//var useCamera1 = false;
+
+class NewLamp {
+  constructor(size, color, lightColor, lightPow) {
+    //this.light = new THREE.PointLight();
+
+    this.box = new THREE.Mesh(new THREE.BoxGeometry(1 * size, 1 * size, 1 * size), new THREE.MeshPhongMaterial({
+      color: color
+    }));
+
+    var tower = new THREE.Mesh(new THREE.CylinderGeometry(2 * size, 4 * size, 10 * size, 32, false, 0), new THREE.MeshPhongMaterial({
+      color: color,
+      side: THREE.DoubleSide
+    }));
+    this.box.add(tower);
+    tower.castShadow = true; //default is false
+    tower.receiveShadow = true; //default
+    tower.position.y = -5 * size;
+
+    var top = new THREE.Mesh(new THREE.CylinderGeometry(2 * size, 2 * size, 1 * size, 32), new THREE.MeshPhongMaterial({
+      color: color,
+      side: THREE.DoubleSide
+    }));
+    top.castShadow = true; //default is false
+    top.receiveShadow = true; //default
+    this.box.add(top);
+
+    var bulb = new THREE.Mesh(new THREE.SphereGeometry(1 * size, 32, 32), new THREE.MeshPhongMaterial({
+      color: 0xf9b652,
+      opacity: 0.4,
+      transparent: true,
+      side: THREE.DoubleSide
+    }));
+    bulb.castShadow = true;
+    //bulb.receiveShadow = true;
+    this.box.add(bulb);
+    bulb.position.y = -2 * size;
+
+    //this.light = new THREE.PointLight(lightColor, lightPow, 0, 2);
+    this.light = new THREE.PointLight(lightColor, lightPow, 0, 0.5);
+    this.light.castShadow = true;
+   // this.light.receiveShadow = true;
+    this.box.add(this.light);
+    this.light.position.y = -4 * size;
+    this.light.distance = 110;
+    //this.light.distance = 150;
+    scene.add(this.box);
+
+  }
+
+
+
+}
+$('#intensity').change ( function() {
+	//console.log ( $(this).val() );
+    for(let i=0;i<=6;i++){
+    	lightArray[i].intensity = $(this).val();
+    }
+})
+$('#lampIntensity').change ( function() {
+	//console.log ( $(this).val() );
+    for(let i=0;i<=6;i++){
+    	lamp[i].light.intensity = $(this).val();
+    }
+})
+
+$('#tView').click(function() {
+//  toggleCamera();
+	lightsOff = !lightsOff;
+
+  if (lightsOff) {
+  lightArray.forEach(function(light){
+  	light.intensity = 0;
+  })
+
+  } else {
+  lightArray.forEach(function(light){
+  	light.intensity = 0.6;
+  })
+  }
+});
+$('#lView').click(function() {
+//  toggleCamera();
+	lampsOff = !lampsOff;
+
+  if (lampsOff) {
+  lamp.forEach(function(box){
+  	box.light.intensity = 0;
+  })
+  	/*light.intensity = 0;
+    light2.intensity = 0;*/
+ } else {
+  lamp.forEach(function(box){
+  	box.light.intensity = 0.6;
+  })
+  }
+});
+
+
+function buildChair(){
+	let Chair1 = new THREE.Mesh(new THREE.BoxGeometry(30, 30, 100), new THREE.MeshPhongMaterial({color:0xf9b652}));
+  Chair1.receiveShadow= true;
+  Chair1.castShadow= true;
+  scene.add(Chair1);
+  Chair1.position.y =15;
+  Chair1.position.x = 135
+
+  let Chair2 = new THREE.Mesh(new THREE.BoxGeometry(30, 30, 100), new THREE.MeshPhongMaterial({color:0xf9b652}));
+  Chair2.receiveShadow= true;
+  Chair2.castShadow= true;
+  scene.add(Chair2);
+  Chair2.position.y =15;
+  Chair2.position.x = -135
+}
+function buildWall(){
+	var wall = [];
+
+	let wall1 = new THREE.Mesh(new THREE.BoxGeometry(10, 100, 415), new THREE.MeshPhongMaterial())
+  wall1.position.y = 50;
+  wall1.position.x = -405;
+  wall.push(wall1);
+
+  let wall2 = new THREE.Mesh(new THREE.BoxGeometry(10, 100, 415), new THREE.MeshPhongMaterial())
+  wall2.position.y = 50;
+  wall2.position.x = 405;
+  wall.push(wall2);
+
+  let wall3 = new THREE.Mesh(new THREE.BoxGeometry(815, 100, 10), new THREE.MeshPhongMaterial())
+  wall3.position.y = 50;
+  wall3.position.z = 200;
+  wall.push(wall3);
+
+  let wall4 = new THREE.Mesh(new THREE.BoxGeometry(815, 100, 10), new THREE.MeshPhongMaterial())
+  wall4.position.y = 50;
+  wall4.position.z = -200;
+  wall.push(wall4);
+
+  let iWall1 = new THREE.Mesh(new THREE.BoxGeometry(100, 100, 10), new THREE.MeshPhongMaterial())
+  iWall1.position.y = 50;
+  iWall1.position.x = -350;
+  wall.push(iWall1);
+
+  let iWall2 = new THREE.Mesh(new THREE.BoxGeometry(100, 100, 10), new THREE.MeshPhongMaterial())
+  iWall2.position.y = 50;
+  iWall2.position.x = 350;
+  wall.push(iWall2);
+
+  let iWall3 = new THREE.Mesh(new THREE.BoxGeometry(200, 100, 10), new THREE.MeshPhongMaterial())
+  iWall3.position.y = 50;
+  iWall3.position.z = -100;
+  wall.push(iWall3);
+
+  let iWall4 = new THREE.Mesh(new THREE.BoxGeometry(200, 100, 10), new THREE.MeshPhongMaterial())
+  scene.add(iWall4);
+  iWall4.position.y = 50;
+  iWall4.position.z = 100;
+
+  let iWall5 = new THREE.Mesh(new THREE.BoxGeometry(10, 100, 200), new THREE.MeshPhongMaterial())
+  iWall5.position.y = 50;
+  iWall5.position.x = -200;
+  wall.push(iWall5);
+
+  let iWall6 = new THREE.Mesh(new THREE.BoxGeometry(10, 100, 200), new THREE.MeshPhongMaterial())
+  iWall6.position.y = 50;
+  iWall6.position.x = 200;
+  wall.push(iWall6);
+
+  wall.forEach(function(wal){
+  	//wal.castShadow=true;
+    wal.receiveShadow = true;
+    scene.add(wal);
+  })
+}
+var scene, renderer, camera;
+var sCam, sCam2, sCam3, sCam4;
+var rendererCam1, rendererCam2, rendererCam3, rendererCam4;
+var mouse = new THREE.Vector2();
+var raycaster = new THREE.Raycaster();
+var pickables = [];
+var angle = 0,sign = 1,flag=1;
+
+init();
+animate();
+
+
+
+
+function pic(x){
+  if(x == null){
+    let y = document.getElementById("toggle").value;
+    x = parseInt(y);
+  }
+  switch (x) {
+    case 0:
+      camera.position.x = 0;
+      camera.position.y = 150;
+      camera.position.z = 0;
+      //camera.lookAt(pickables[4].position);
+      document.getElementById("intro").innerHTML = "Kanahei 是一個插畫家與漫畫家，來自日本愛媛縣。";
+      break;
+
+    case 1:
+      camera.position.x = -300;
+      camera.position.y = 50;
+      camera.position.z = 0;
+      camera.lookAt(pickables[4].position);
+      document.getElementById("intro").innerHTML = "兔兔，原名為Usagi，是Kanahei的小動物中最受歡迎的角色   粉紅小兔兔的名字是兔兔，日文的 Usagi 就是兔子的意思，所以就直翻為兔兔。";
+      break;
+    case 2:
+        camera.position.x = 300;
+        camera.position.y = 50;
+        camera.position.z = 0;
+        camera.lookAt(pickables[5].position);
+        document.getElementById("intro").innerHTML = "P助，原名為Pisuke，是Kanahei的小動物中兔兔的好夥伴   總是跟在兔兔身邊的白色小生物，叫做 P助 ，日文唸法是 Piske ，牠是一隻小鳥，也有人說他是小雞，會有這樣兩種不一樣的說法，是因為在日文裡的鳥也可以代表雞的意思，所以牠的身份是個謎。";
+       break;
+    case 3:
+       camera.position.x = 0;
+       camera.position.y = 50;
+       camera.position.z = 180;
+       camera.lookAt(pickables[6].position);
+       document.getElementById("intro").innerHTML = "兔兔開心地抵達了終點。";
+       break;
+    case 4:
+       camera.position.x = 0;
+       camera.position.y = 50;
+       camera.position.z = -180;
+       camera.lookAt(pickables[7].position);
+       document.getElementById("intro").innerHTML = "兔兔和P助正在開心地跳舞。";
+       break;
+    case 5:
+       camera.position.x = 0;
+       camera.position.y = 50;
+       camera.position.z = -40;
+       camera.lookAt(pickables[0].position);
+       document.getElementById("intro").innerHTML = "兔兔、P助與女孩正在開心地度過冬天。";
+       break;
+    case 6:
+       camera.position.x = 0;
+       camera.position.y = 50;
+       camera.position.z = 40;
+       camera.lookAt(pickables[1].position);
+       document.getElementById("intro").innerHTML = "兔兔、P助與女孩正在為了萬聖節做準備。";
+       break;
+    case 7:
+      camera.position.x = -150;
+      camera.position.y = 50;
+      camera.position.z = 0;
+      camera.lookAt(pickables[2].position);
+      document.getElementById("intro").innerHTML = "熱浪來襲！兔兔與男孩正在享受這個夏天。";
+      break;
+      case 8:
+        camera.position.x = 150;
+        camera.position.y = 50;
+        camera.position.z = 0;
+        camera.lookAt(pickables[3].position);
+        document.getElementById("intro").innerHTML = "兔兔、P助與女孩正在月球上快樂的玩耍。";
+        break;
+    default:
+    camera.position.x = 0;
+    camera.position.y = 150;
+    camera.position.z = 0;
+      //camera.lookAt(pickables[5].position);
+      document.getElementById("intro").innerHTML = "Kanahei 是一個插畫家與漫畫家，來自日本愛媛縣。";
+  }
+}
+$("#Usagi").click(function(){
+  pic(1);
+  alert(1);
+});
+$("#Piske").click(function(){
+  pic(2);
+  alert(2);
+});
+$("#Usagi & Piske goal").click(function(){
+  pic(3);
+  alert(3);
+});
+$("#Usagi & Piske dance").click(function(){
+  pic(4);
+  alert(4);
+});
+$("#Snow").click(function(){
+  pic(5);
+  alert(5);
+});
+$("#Halloween").click(function(){
+  pic(6);
+  alert(6);
+});
+$("#Summer").click(function(){
+  pic(7);
+  alert(7);
+});
+$("#Moon").click(function(){
+  pic(8);
+  alert(8);
+});
+$("#camera1").click(function(){
+  flag = 1;
+  //console.log("1");
+});
+$("#camera2").click(function(){
+  flag = 2;
+  //console.log("2");
+});
+$("#camera3").click(function(){
+  flag = 3;
+  //console.log("3");
+});
+$("#camera4").click(function(){
+  flag = 4;
+  //console.log("4");
+});
+$("#right").click(function(){
+  switch(flag){
+    case 1:
+      if(sCam.fov < 70) sCam.fov+=5;
+      sCam.updateProjectionMatrix();
+      sCam2.fov = 45;
+      sCam3.fov = 45;
+      sCam4.fov = 45;
+      //console.log(sCam.fov);
+      break;
+    case 2:
+      if(sCam2.fov < 70) sCam2.fov+=5;
+      sCam2.updateProjectionMatrix()
+      sCam.fov = 45;
+      sCam3.fov = 45;
+      sCam4.fov = 45;
+      break;
+    case 3:
+      if(sCam3.fov < 70) sCam3.fov+=5;
+      sCam3.updateProjectionMatrix()
+      sCam.fov = 45;
+      sCam2.fov = 45;
+      sCam4.fov = 45;
+      break;
+    default:
+      if(sCam4.fov < 70) sCam4.fov+=5;
+      sCam4.updateProjectionMatrix()
+      sCam.fov = 45;
+      sCam2.fov = 45;
+      sCam3.fov = 45;
+  }
+});
+$("#left").click(function(){
+  switch(flag){
+    case 1:
+      if(sCam.fov > 20) sCam.fov-=5;
+      sCam.updateProjectionMatrix()
+      sCam2.fov = 45;
+      sCam3.fov = 45;
+      sCam4.fov = 45;
+      break;
+    case 2:
+      if(sCam2.fov > 20) sCam2.fov-=5;
+      sCam2.updateProjectionMatrix()
+      sCam.fov = 45;
+      sCam3.fov = 45;
+      sCam4.fov = 45;
+      break;
+    case 3:
+      if(sCam3.fov > 20) sCam3.fov-=5;
+      sCam3.updateProjectionMatrix()
+      sCam.fov = 45;
+      sCam2.fov = 45;
+      sCam4.fov = 45;
+      break;
+    default:
+      if(sCam4.fov > 20) sCam4.fov-=5;
+      sCam4.updateProjectionMatrix()
+      sCam.fov = 45;
+      sCam2.fov = 45;
+      sCam3.fov = 45;
+  }
+});
+function init() {
+
+  renderer = new THREE.WebGLRenderer({
+    antialias: true
+  });
+  var ww = $('#container').innerWidth();
+  var hh = $('#container').innerHeight();
+  renderer.setSize(ww, hh);
+  renderer.setClearColor(0x555555);
+  $('#container').append(renderer.domElement);
+//////監視器/////
+  rendererCam1 = new THREE.WebGLRenderer({
+        antialias: true
+      });
+    var cam1w = $('#cam1').innerWidth();
+    var cam1h = $('#cam1').innerHeight();
+    rendererCam1.setSize(cam1w, cam1h);
+    rendererCam1.setClearColor(0x555555);
+    $('#cam1').append(rendererCam1.domElement);
+  //////////2//////
+  rendererCam2 = new THREE.WebGLRenderer({
+        antialias: true
+      });
+    var cam2w = $('#cam2').innerWidth();
+    var cam2h = $('#cam2').innerHeight();
+    rendererCam2.setSize(cam2w, cam2h);
+    rendererCam2.setClearColor(0x555555);
+    $('#cam2').append(rendererCam2.domElement);
+    ///////////3
+    rendererCam3 = new THREE.WebGLRenderer({
+          antialias: true
+        });
+      var cam3w = $('#cam3').innerWidth();
+      var cam3h = $('#cam3').innerHeight();
+      rendererCam3.setSize(cam3w, cam3h);
+      rendererCam3.setClearColor(0x555555);
+      $('#cam3').append(rendererCam3.domElement);
+    /////////////4
+    rendererCam4 = new THREE.WebGLRenderer({
+          antialias: true
+        });
+      var cam4w = $('#cam4').innerWidth();
+      var cam4h = $('#cam4').innerHeight();
+      rendererCam4.setSize(cam4w, cam4h);
+      rendererCam4.setClearColor(0x555555);
+      $('#cam4').append(rendererCam4.domElement);
+    ////////5
+    rendererMoni = new THREE.WebGLRenderer({
+      antialias: true
+    });
+  var moniw = $('#monitor').innerWidth();
+  var monih = $('#monitor').innerHeight();
+  rendererMoni.setSize(moniw, monih);
+  rendererMoni.setClearColor(0x555555);
+  $('#monitor').append(rendererMoni.domElement);
+  ///////////
+  scene = new THREE.Scene();
+
+  camera = new THREE.PerspectiveCamera(90, ww / hh, 1, 10000);
+  camera.position.x = 0;
+  camera.position.y = 80;
+  camera.position.z = 200;
+
+	let controls = new THREE.OrbitControls(camera, renderer.domElement);
+
+  //var gridXZ = new THREE.GridHelper(200, 20, 'red', 'white');
+  //scene.add(gridXZ);
+
+  window.addEventListener('resize', onWindowResize, false);
+  //$('#container').on ("mousemove", onDocumentMouseMove);
+  window.addEventListener('mousedown', onDocumentMouseDown, false);
+ 	////////////////放牆壁//////////////////////
+  buildWall();
+ buildChair();
+  let loader = new THREE.TextureLoader();
+  loader.crossOrigin = '';
+  texture = loader.load("https://i.imgur.com/1nKaCsO.jpg");
+  texture.repeat.set (2,2);
+  texture.wrapS = texture.wrapT = true;
+
+  let floor = new THREE.Mesh(new THREE.PlaneGeometry(800, 400), new THREE.MeshPhongMaterial({
+    side: THREE.DoubleSide,
+    map: texture
+  }))
+  scene.add(floor)
+  floor.rotation.x = -Math.PI / 2;
+  //floor.castShadow = true;
+  floor.receiveShadow = true;
+
+
+
+///////////////////////
+var ambient = new THREE.AmbientLight( 0xffffff, 0.5 );
+				scene.add( ambient );
+  /////////////////////////////////////////場地光
+ let lightPosX = [0, -250, 250, 0, -250, 250, 0];
+ let lightPosZ = [-125, -100, -100, 125, 100, 100, 0];
+ for(i=0;i<=7;i++){
+ 	lightArray[i]=new THREE.PointLight(0xffffff, 0.6,300);
+  lightArray[i].position.set(lightPosX[i],150,lightPosZ[i]);
+  scene.add(lightArray[i]);
+ }
+ for(i=0;i<=3;i++){
+	 //lampT = ;
+	  lamp.push(new NewLamp(1,0x555555,0xf9b652,0.3)) ;
+ }
+
+  lamp[0].box.rotateX(Math.PI/4);
+  lamp[0].box.position.set(0,110,-35);
+
+
+//  lamp[1]= new NewLamp(1,0x555555,0xf9b652,0.3);
+  lamp[1].box.rotateX(-Math.PI/4);
+  lamp[1].box.position.set(0,110,35);
+
+  //lamp[2]= new NewLamp(1,0x555555,0xf9b652,0.3);
+  lamp[2].box.rotateZ(Math.PI/4);
+  lamp[2].box.position.set(135,110,0);
+
+//  lamp[3]= new NewLamp(1,0x555555,0xf9b652,0.3);
+  lamp[3].box.rotateZ(-Math.PI/4);
+  lamp[3].box.position.set(-135,110,0);
+ /*
+  let wall = new THREE.Mesh (new THREE.BoxGeometry (60,40,10), new THREE.MeshNormalMaterial());
+  scene.add (wall);
+  wall.position.set (0, 20, -5);
+
+  let wall2 = new THREE.Mesh (new THREE.BoxGeometry (10,40,60), new THREE.MeshNormalMaterial());
+  scene.add (wall2);
+  wall2.position.set (-35, 20, 20);*/
+  //////////監視器surveillance camera////////
+  ///////////////////////////////////
+
+  sCam = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 1, 1000);
+
+  cameraObj = new THREE.Object3D();
+  //cameraObj.add (new THREE.AxisHelper (40))
+  cameraBody = new THREE.Mesh (new THREE.BoxGeometry (20,12,5), new THREE.MeshNormalMaterial());
+  lens = new THREE.Mesh (new THREE.CylinderGeometry (5,5,10), new THREE.MeshNormalMaterial());
+  lens.position.z = -5;
+  lens.rotation.x = Math.PI/2;
+  cameraObj.add (cameraBody, lens);
+
+  cameraCase = new THREE.Object3D();
+  cameraCase.add (cameraObj);
+	cameraCase.position.set (-380, 120, 180);
+  scene.add (cameraCase);
+
+
+  // manual aiming, from (-50,40,50) to (0,0,0)
+  cameraCase.rotation.y = -Math.PI/3;
+  cameraCase.rotation.x = -Math.PI/6;
+  cameraCase.rotation.order = 'YXZ'
+  /////////監視器2////////
+  sCam2 = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 1, 1000);
+
+  cameraObj2 = new THREE.Object3D();
+  //cameraObj.add (new THREE.AxisHelper (40))
+  cameraBody2 = new THREE.Mesh (new THREE.BoxGeometry (20,12,5), new THREE.MeshNormalMaterial());
+  lens2 = new THREE.Mesh (new THREE.CylinderGeometry (5,5,10), new THREE.MeshNormalMaterial());
+  lens2.position.z = -5;
+  lens2.rotation.x = Math.PI/2;
+  cameraObj2.add (cameraBody2, lens2);
+
+  cameraCase2 = new THREE.Object3D();
+  cameraCase2.add (cameraObj2);
+	cameraCase2.position.set (380, 120, -180);
+  scene.add (cameraCase2);
+  cameraCase2.rotation.y = Math.PI/1.5;
+  cameraCase2.rotation.x = -Math.PI/6;
+  cameraCase2.rotation.order = 'YXZ'
+    /////////監視器3////////
+    sCam3 = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 1, 1000);
+
+    cameraObj3 = new THREE.Object3D();
+    //cameraObj.add (new THREE.AxisHelper (40))
+    cameraBody3 = new THREE.Mesh (new THREE.BoxGeometry (20,12,5), new THREE.MeshNormalMaterial());
+    lens3 = new THREE.Mesh (new THREE.CylinderGeometry (5,5,10), new THREE.MeshNormalMaterial());
+    lens3.position.z = -5;
+    lens3.rotation.x = Math.PI/2;
+    cameraObj3.add (cameraBody3, lens3);
+
+    cameraCase3 = new THREE.Object3D();
+    cameraCase3.add (cameraObj3);
+  	cameraCase3.position.set (-380, 120, -180);
+    scene.add (cameraCase3);
+
+  cameraCase3.rotation.y = -Math.PI/1.5;
+  cameraCase3.rotation.x = -Math.PI/6;
+  cameraCase3.rotation.order = 'YXZ'
+  /////////////監視器4//////
+  sCam4 = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 1, 1000);
+
+  cameraObj4 = new THREE.Object3D();
+  //cameraObj.add (new THREE.AxisHelper (40))
+  cameraBody4 = new THREE.Mesh (new THREE.BoxGeometry (20,12,5), new THREE.MeshNormalMaterial());
+  lens4 = new THREE.Mesh (new THREE.CylinderGeometry (5,5,10), new THREE.MeshNormalMaterial());
+  lens4.position.z = -5;
+  lens4.rotation.x = Math.PI/2;
+  cameraObj4.add (cameraBody4, lens4);
+
+  cameraCase4 = new THREE.Object3D();
+  cameraCase4.add (cameraObj4);
+  cameraCase4.position.set (380, 120, 180);
+  scene.add (cameraCase4);
+
+cameraCase4.rotation.y = Math.PI/3;
+cameraCase4.rotation.x = -Math.PI/6;
+cameraCase4.rotation.order = 'YXZ'
+////圖片////
+////座標//////
+  //let loader = new THREE.TextureLoader();
+  loader.crossOrigin = "";
+  tex = loader.load ("https://i.imgur.com/BvLn4xZ.jpg");
+
+  let painting = new THREE.Mesh (new THREE.PlaneGeometry(98,78), new THREE.MeshBasicMaterial({map: tex}));
+  scene.add (painting);
+  painting.position.y =50;
+  painting.position.z = -94;
+  painting.name = 'Snow';
+  painting.receiveShadow = true;
+  //painting.castShadow = true;
+
+  tex2 = loader.load ("https://i.imgur.com/jlkNfUy.jpg");
+	let painting2 = new THREE.Mesh (new THREE.PlaneGeometry(98,78), new THREE.MeshBasicMaterial({map: tex2}));
+  scene.add (painting2);
+  painting2.rotation.y = Math.PI;
+  painting2.position.y = 50;
+  painting2.position.z =94;
+  painting2.name = 'Halloween';
+  painting2.receiveShadow = true;
+
+  tex3 = loader.load ("https://i.imgur.com/rTjhzLX.jpg");
+	let painting3 = new THREE.Mesh (new THREE.PlaneGeometry(91,60), new THREE.MeshBasicMaterial({map: tex3}));
+  scene.add (painting3);
+  painting3.rotation.y = Math.PI/2;
+  painting3.position.y = 50;
+  painting3.position.x =-194;
+  painting3.name = 'Summer';
+  painting3.receiveShadow = true;
+
+  tex4 = loader.load ("https://i.imgur.com/yxuv9ep.jpg");
+	let painting4 = new THREE.Mesh (new THREE.PlaneGeometry(80,60), new THREE.MeshBasicMaterial({map: tex4}));
+  scene.add (painting4);
+  painting4.rotation.y = -Math.PI/2;
+  painting4.position.y = 50;
+  painting4.position.x =194;
+  painting4.name = 'Moon';
+  painting4.receiveShadow = true;
+
+  tex5 = loader.load ("https://i.imgur.com/5K71Wpb.png");
+	let painting5 = new THREE.Mesh (new THREE.PlaneGeometry(60,60), new THREE.MeshBasicMaterial({map: tex5,transparent:true}));
+  scene.add (painting5);
+  painting5.rotation.y = -Math.PI/2;
+  painting5.position.y = 50;
+  painting5.position.x =-206;
+  painting5.name = 'Usagi';
+  painting5.receiveShadow = true;
+
+
+  tex6 = loader.load ("https://i.imgur.com/q4iBiAP.png");
+  let painting6 = new THREE.Mesh (new THREE.PlaneGeometry(60,60), new THREE.MeshBasicMaterial({map: tex6,transparent:true}));
+  scene.add (painting6);
+  painting6.rotation.y = Math.PI/2;
+  painting6.position.y = 50;
+  painting6.position.x =206;
+  painting6.name = 'Piske';
+  painting6.receiveShadow = true;
+
+  tex7 = loader.load ("https://i.imgur.com/bgi8n8D.png");
+  let painting7 = new THREE.Mesh (new THREE.PlaneGeometry(91,56), new THREE.MeshBasicMaterial({map: tex7,transparent:true}));
+  scene.add (painting7);
+  //painting7.rotation.y = Math.PI;
+  painting7.position.y = 50;
+  painting7.position.z =106;
+  painting7.name = 'Usagi & Piske goal';
+
+  tex8 = loader.load ("https://i.imgur.com/xETAQgv.png");
+  let painting8 = new THREE.Mesh (new THREE.PlaneGeometry(93,80), new THREE.MeshBasicMaterial({map: tex8,transparent:true}));
+  scene.add (painting8);
+  painting8.rotation.y = Math.PI;
+  painting8.position.y = 50;
+  painting8.position.z =-106;
+  painting8.name = 'Usagi & Piske dance';
+
+  pickables.push (painting,painting2,painting3,painting4,painting5,painting6,painting7,painting8);
+}
+
+function onWindowResize() {
+  var ww = $('#container').innerWidth();
+  var hh = $('#container').innerHeight();
+  camera.aspect = ww / hh;
+  camera.updateProjectionMatrix();
+  renderer.setSize(ww, hh);
+}
+
+function onDocumentMouseDown(event) {
+
+  //event.preventDefault();
+
+  // many unsuccessful tries ...
+/*
+  mouse.x = ((event.clientX - event.target.offsetLeft) / $('#container').innerWidth()) * 2 - 1;
+  mouse.y = -((event.clientY - event.target.offsetTop) / $('#container').innerHeight()) * 2 + 1;
+*/
+
+  var viewportPos =$('#container').get(0).getBoundingClientRect();
+	mouse.x = ((event.clientX - viewportPos.left) / $('#container').innerWidth()) * 2 - 1;
+  mouse.y = -((event.clientY - viewportPos.top) / $('#container').innerHeight()) * 2 + 1;
+
+	raycaster.setFromCamera(mouse, camera);
+  var intersects = raycaster.intersectObjects (pickables);
+  ////被選到的圖片//////
+  if (intersects.length > 0) {
+    //cyl.position.copy(intersects[0].point);
+  //  alert (intersects[0].object.name + " is picked!")
+  if(intersects[0].object.name === "Usagi")pic(1);
+  else if(intersects[0].object.name === "Piske")pic(2);
+  else if(intersects[0].object.name === "Usagi & Piske goal")pic(3);
+  else if(intersects[0].object.name === "Usagi & Piske dance")pic(4);
+  else if(intersects[0].object.name === "Snow")pic(5);
+  else if(intersects[0].object.name === "Halloween")pic(6);
+  else if(intersects[0].object.name === "Summer")pic(7);
+  else if(intersects[0].object.name === "Moon")pic(8);
+  else pic(9);
+    /*for(let i = 0; i < pickables.length; i++){
+      //console.log(intersects[0].object.name + " *** " + pickables[i].name);
+      if(intersects[0].object.name === pickables[i].name) pic(i);
+    }*/
+    //
+  }
+}
+
+function animate() {
+  angle += 0.005*sign;
+  if (angle > 0.3 || angle < -0.3)
+  	sign *= -1;
+  cameraObj.rotation.y = angle;
+  cameraObj2.rotation.y = angle;
+  cameraObj3.rotation.y = angle;
+  cameraObj4.rotation.y = angle;
+
+	sCam.matrixWorld.copy (cameraObj.matrixWorld);
+  sCam.matrixAutoUpdate = false;
+  sCam2.matrixWorld.copy (cameraObj2.matrixWorld);
+  sCam2.matrixAutoUpdate = false;
+  sCam3.matrixWorld.copy (cameraObj3.matrixWorld);
+  sCam3.matrixAutoUpdate = false;
+  sCam4.matrixWorld.copy (cameraObj4.matrixWorld);
+  sCam4.matrixAutoUpdate = false;
+  renderer.render(scene, camera);
+  rendererCam1.render(scene, sCam);
+  rendererCam2.render(scene, sCam2);
+  rendererCam3.render(scene, sCam3);
+  rendererCam4.render(scene, sCam4);
+  switch(flag){
+    case 1:
+      rendererMoni.render(scene, sCam);
+      break;
+    case 2:
+      rendererMoni.render(scene, sCam2);
+      break;
+    case 3:
+      rendererMoni.render(scene, sCam3);
+      break;
+    default:
+      rendererMoni.render(scene, sCam4);
+  }
+
+  requestAnimationFrame(animate);
+  //render();
+}
+
+
+
+
+</script>
+</body>
+
+</html>

@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Socket.IO chat HW5</title>
+	<center><font size="3"><h1 id='title'><font color="pink"></font>
+	</h1></font></center>
+	<hr>
+	<div style="position:absolute;right:30px;">
+      訊息音效: <input id="msgSound" type="checkbox" checked />
+	</div>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { font: 13px Helvetica, Arial; }
+      form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
+      form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
+      form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
+      #messages { list-style-type: none; margin: 0; padding: 0; }
+      #messages li { padding: 5px 10px; }
+      #messages li:nth-child(odd) { background: #eee; }
+      #messages { margin-bottom: 40px }
+    </style>
+  </head>
+  <body>
+  	<!--div id='container' style='background:pink; width:40vw; height:40vw'>
+  	</div>
+  	<button id='toggle'>toggle</button>
+  	<div style="overflow: scroll"-->
+    <center><p id="online"></p></center>	
+    <ul id="messages"></ul>
+    </div>
+    
+    <form action="">
+      <input id="m" autocomplete="off" placeholder="輸入訊息"/><button>Send</button>
+    </form>
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/84/three.min.js"></script>
+<script src="https://threejs.org/examples/js/controls/OrbitControls.js"></script>
+<!--script src="https://cdn.socket.io/socket.io-1.2.0.js"></script-->
+<!--script src="node_modules/socket.io-client/dist/socket.io.js"></script-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+
+<script>
+$(function () {
+	    var olS, msgS, warS;
+        var socket = io();
+		var myName;
+		myName = document.location.search.match(/\?name=(.+)/)[1];
+		$('#title').text ("你好, "+ myName + "!");
+		
+		olS = new Audio('http://k007.kiwi6.com/hotlink/9b1252amms/online_.wav');
+	    msgS = new Audio('http://k007.kiwi6.com/hotlink/eyq7u1pfj8/type_.wav');
+	    warS = new Audio('http://k007.kiwi6.com/hotlink/1jwyy6wfdi/warning.wav');
+		
+        $('form').submit(function(){
+		  if($('#m').val() != "") {
+            socket.emit('chat message', $('#m').val(), myName);
+            $('#m').val('');
+		  }
+		  else {
+		    warS.play();
+		    alert("訊息不可空白");
+		  }
+          return false;
+        });
+		//上線
+		socket.emit('login', myName);
+		socket.on('login', function(name, Users){
+		  $('#online').text("聊天室人數: " + Users + " 人");
+		    
+		  if(myName === name)
+		    $('#messages').append($('<li>').text("成功進入怪人聊天室!"));
+		  else {
+            $('#messages').append($('<li>').text("(一位新怪人: " + name + " 加了進來!)"));
+            olS.play();
+		  }
+		  window.scrollTo(0, document.body.scrollHeight);
+        });
+		//離線
+		
+		socket.on('diss', function (name, Users) {
+		
+		  $('#online').text("聊天室線上怪人個數: " + Users + " 人");
+		  $('#messages').append($('<li>').text("(有一位怪人: " + name + "離開了聊天室..)"));
+		});
+		//訊息傳送
+        socket.on('chat message', function(msg, name){
+		  if($("#msgSound").prop("checked")) {
+		    if(name != myName)
+			  msgS.play();
+		  }
+          $('#messages').append($('<li>').text(name + ": " + msg));
+          window.scrollTo(0, document.body.scrollHeight);
+        });
+      });
+
+      	
+</script>
+</body>
+</html>
